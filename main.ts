@@ -16,14 +16,16 @@ const cargarNuevoChiste = async() => {
          throw new Error(`HTTP error! Status: ${respuesta.status}`);
        }
      
-    console.log(respuesta.body)
+   
     
  
      const datos =  await respuesta.json()
-     console.log(datos)
+     const chiste = datos.joke;  
+    console.log("Este es mi nuevo chiste: " + chiste);  
+
+//quede aqui
  
-     let chistes: string = ""
-         chistes = `<h1>${datos.joke}<h1>`;
+     let chistes: string = `<h1>${datos.joke}<h1>`;
      let myElement = document.getElementById("chistecito");
      if (myElement) {
          myElement.innerHTML = chistes;
@@ -34,7 +36,8 @@ const cargarNuevoChiste = async() => {
      console.error("Error al cargar el chiste:", error);
    }
  }
- 
+  document.getElementById("nuevoChiste")?.addEventListener("click", cargarNuevoChiste);
+
  
  
  cargarNuevoChiste()

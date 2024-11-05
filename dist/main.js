@@ -35,8 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var _a;
 var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var myHeaders, requestOptions, respuesta, datos, chistes, myElement, error_1;
+    var myHeaders, requestOptions, respuesta, datos, chiste, chistes, myElement, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -53,12 +54,11 @@ var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, f
                 if (!respuesta.ok) {
                     throw new Error("HTTP error! Status: ".concat(respuesta.status));
                 }
-                console.log(respuesta.body);
                 return [4 /*yield*/, respuesta.json()];
             case 2:
                 datos = _a.sent();
-                console.log(datos);
-                chistes = "";
+                chiste = datos.joke;
+                console.log("Este es mi nuevo chiste: " + chiste);
                 chistes = "<h1>".concat(datos.joke, "<h1>");
                 myElement = document.getElementById("chistecito");
                 if (myElement) {
@@ -76,4 +76,5 @@ var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, f
         }
     });
 }); };
+(_a = document.getElementById("nuevoChiste")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", cargarNuevoChiste);
 cargarNuevoChiste();
