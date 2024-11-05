@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "ES5",           // O usa "ES6" si lo prefieres
+      "module": "ES6",           // Usamos ES6 para módulos
+      "outDir": "./dist",        // Los archivos compilados se guardarán en la carpeta dist
+      "strict": true,            // Habilita verificaciones estrictas
+      "esModuleInterop": true,   // Compatibilidad entre módulos ES6 y CommonJS
+      "lib": ["DOM", "ES2015"]   // Necesario para usar funciones del navegador
+    },
+    "include": [
+      "*.ts"                     // Incluir todos los archivos .ts en la raíz del proyecto
+    ],
+    "exclude": [
+      "node_modules"             // Excluir la carpeta node_modules
+    ]
+  }
+  
