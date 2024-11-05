@@ -1,0 +1,47 @@
+.fondo {
+  background-image: url('./images/Blue\ Bubbles\ Art\ 3D.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover; /* Cubre toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que se repita la imagen */
+  height: 100vh; /* Asegúrate de que cubra toda la altura de la ventana */
+  margin: 0; /* Elimina el margen predeterminado */
+}
+.title1 {
+  margin-top: 15rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #b31c59;
+  font-size: 3rem;
+  border-radius: 50px;
+  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
+  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
+  width: 30%;
+}
+
+.neuButton {
+  border: none;
+  border-radius: 76px;
+  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
+  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
+  height: 3rem;
+  width: 8rem;
+  color: #4389eb;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.neuButton:hover {
+  color: #b31c59;
+  cursor: pointer;
+}
+.chiste {
+  color: #6ba2f0;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  font-size: 1rem;
+  border-radius: 100px;
+  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
+  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
+  width: 80%;
+}
