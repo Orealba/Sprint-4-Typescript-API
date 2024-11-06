@@ -35,9 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _a;
+var _a, _b, _c, _d;
+var reportAcudits = [];
 var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var myHeaders, requestOptions, respuesta, datos, chiste, chistes, myElement, error_1;
+    var myHeaders, requestOptions, respuesta, datos, chiste, myElement, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -59,14 +60,19 @@ var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, f
                 datos = _a.sent();
                 chiste = datos.joke;
                 console.log("Este es mi nuevo chiste: " + chiste);
-                chistes = "<h1>".concat(datos.joke, "<h1>");
                 myElement = document.getElementById("chistecito");
                 if (myElement) {
-                    myElement.innerHTML = chistes;
+                    myElement.innerHTML = "<h1>".concat(chiste, "</h1>");
                 }
                 else {
                     console.error("Elemento con id 'chistecito' no encontrado");
                 }
+                reportAcudits.push({
+                    joke: chiste,
+                    score: 0,
+                    date: new Date().toISOString(),
+                });
+                console.log("Este es un reporte de chistes: ", reportAcudits);
                 return [3 /*break*/, 4];
             case 3:
                 error_1 = _a.sent();
@@ -76,5 +82,18 @@ var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, f
         }
     });
 }); };
+var votoChiste = function (score) {
+    if (reportAcudits.length > 0) {
+        reportAcudits[reportAcudits.length - 1].score = score;
+        reportAcudits[reportAcudits.length - 1].date = new Date().toISOString();
+        console.log("Reporte nuevo : ", reportAcudits);
+    }
+};
 (_a = document.getElementById("nuevoChiste")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", cargarNuevoChiste);
+(_b = document.querySelector(".sad-image")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", function () { return votoChiste(1); });
+(_c = document.querySelector(".normal-image")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", function () { console.log("Sad image clicked"); votoChiste(2); });
+(_d = document.querySelector(".happy-image")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", function () {
+    console.log("Happy image clicked");
+    votoChiste(3);
+});
 cargarNuevoChiste();

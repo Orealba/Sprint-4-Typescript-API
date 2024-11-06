@@ -10,38 +10,71 @@
   margin-top: 15rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  
   color: #b31c59;
-  font-size: 3rem;
+  font-size: 2rem;
   border-radius: 50px;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
-  width: 30%;
+  width: 25%;
+  font-family: "Exo 2";
 }
+
+
+.chiste {
+  color: #6ba2f0;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 3rem;
+  font-size: 1rem;
+  border-radius: 100px;
+  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
+  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
+  width: 50%;
+  font-family: "Exo 2";
+}
+.sad-image{
+  max-width:5rem;
+  
+}
+.normal-image{
+  max-width: 5rem;
+  margin-left: 1rem;
+ 
+}
+.happy-image{
+  max-width: 7.5rem;
+  
+}
+.sad-image:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.normal-image:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.happy-image:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
 
 .neuButton {
   border: none;
   border-radius: 76px;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
-  height: 3rem;
-  width: 8rem;
+  height: 4rem;
+  width: 12rem;
   color: #4389eb;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  margin-top: 3rem;
 }
 .neuButton:hover {
   color: #b31c59;
   cursor: pointer;
-}
-.chiste {
-  color: #6ba2f0;
-  padding-bottom: 3rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  padding-top: 3rem;
-  font-size: 1rem;
-  border-radius: 100px;
-  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
-  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
-  width: 80%;
 }
