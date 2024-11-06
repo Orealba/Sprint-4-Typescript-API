@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,8 +35,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _a, _b, _c, _d;
+var _this = this;
 var reportAcudits = [];
-var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, function () {
+var cargarNuevoChiste = function () { return __awaiter(_this, void 0, void 0, function () {
     var myHeaders, requestOptions, respuesta, datos, chiste, myElement, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -98,44 +98,50 @@ var votoChiste = function (score) {
 });
 cargarNuevoChiste();
 //Clima
-var cargarClima = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var myHeaders, requestOptions, respuesta, datos, temperatura, descripcion, myElement, error_2;
+var cargarClima = function () { return __awaiter(_this, void 0, void 0, function () {
+    var myHeaders, requestOptions, respuesta, datos, lugar, myElement, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                console.log("Función cargarClima llamada"); // Añade este log
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 4, , 5]);
                 myHeaders = new Headers();
                 myHeaders.append("Accept", "application/json");
                 requestOptions = {
                     method: "GET",
                     headers: myHeaders,
                 };
-                return [4 /*yield*/, fetch("https://www.meteosource.com/api/v1/free/point?place_id=lhospitalet-de-llobregat-6356131&sections=current&timezone=UTC&language=en&units=metric&key=h0xfi7lv092neom9tueiu15yj0jabx9htj5j0cw3", requestOptions)];
-            case 1:
+                return [4 /*yield*/, fetch("https://www.meteosource.com/api/v1/free/find_places_prefix?key=h0xfi7lv092neom9tueiu15yj0jabx9htj5j0cw3&text=08013", requestOptions)];
+            case 2:
                 respuesta = _a.sent();
                 if (!respuesta.ok) {
                     throw new Error("Error al obtener el lugar: ".concat(respuesta.status));
                 }
                 return [4 /*yield*/, respuesta.json()];
-            case 2:
+            case 3:
                 datos = _a.sent();
-                console.log("Datos completos de la API:", datos);
                 console.log("Respuesta de la API:", datos);
-                temperatura = datos.current.temperature;
-                descripcion = datos.current.summary;
+                if (!datos.places || datos.places.length === 0) {
+                    console.error("No se encontró un lugar con el prefijo dado.");
+                    return [2 /*return*/];
+                }
+                lugar = datos.places[0];
+                console.log("Lugar encontrado:", lugar);
                 myElement = document.getElementById("clima");
                 if (myElement) {
-                    myElement.innerHTML = "<h1>Clima: ".concat(temperatura, "\u00B0C - ").concat(descripcion, "</h1>");
+                    myElement.innerHTML = "<h1>Lugar: ".concat(lugar.name, ", Pa\u00EDs: ").concat(lugar.country, "</h1>");
                 }
                 else {
                     console.error("Elemento con id 'clima' no encontrado");
                 }
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 error_2 = _a.sent();
                 console.error("Error al cargar el clima:", error_2);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
