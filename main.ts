@@ -104,7 +104,7 @@ const cargarClima = async() => {
     // Mostramos los datos del lugar en el HTML
     let myElement = document.getElementById("clima");
     if (myElement) {
-      myElement.innerHTML = `<h1>Clima: ${temperatura}°C - ${descripcion}</h1>`;
+      myElement.innerHTML = `<h3>Weather: </h3>` + `<h3> ${temperatura}°C - ${descripcion}</h3>`;
     } else {
       console.error("Elemento con id 'clima' no encontrado");
     }

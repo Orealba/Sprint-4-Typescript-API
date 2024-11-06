@@ -7,16 +7,25 @@
   margin: 0; /* Elimina el margen predeterminado */
 }
 .clima {
-  margin: 3rem;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  color: #126dec;
+  border-radius: 10rem;
+  background: linear-gradient(315deg, #ceb8cb, #f5daf2);
+  box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
+  width: 8%;
+  font-family: 'Exo 2';
+  font-size: 0.8rem;
 }
 .title1 {
-  margin-top: 15rem;
+ 
   padding-top: 2rem;
   padding-bottom: 2rem;
 
   color: #b31c59;
   font-size: 2rem;
-  border-radius: 50px;
+  border-radius: 5rem;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
   width: 25%;
@@ -30,7 +39,7 @@
   padding-right: 1rem;
   padding-top: 3rem;
   font-size: 1rem;
-  border-radius: 100px;
+  border-radius: 8rem;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
   width: 50%;
@@ -61,7 +70,7 @@
 
 .neuButton {
   border: none;
-  border-radius: 76px;
+  border-radius: 5rem;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
   height: 4rem;

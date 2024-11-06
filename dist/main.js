@@ -125,7 +125,7 @@ var cargarClima = function () { return __awaiter(void 0, void 0, void 0, functio
                 descripcion = datos.current.summary;
                 myElement = document.getElementById("clima");
                 if (myElement) {
-                    myElement.innerHTML = "<h1>Clima: ".concat(temperatura, "\u00B0C - ").concat(descripcion, "</h1>");
+                    myElement.innerHTML = "<h3>Weather: </h3>" + "<h3> ".concat(temperatura, "\u00B0C - ").concat(descripcion, "</h3>");
                 }
                 else {
                     console.error("Elemento con id 'clima' no encontrado");
