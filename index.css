@@ -6,20 +6,22 @@
   height: 100vh; /* Asegúrate de que cubra toda la altura de la ventana */
   margin: 0; /* Elimina el margen predeterminado */
 }
+.clima {
+  margin: 3rem;
+}
 .title1 {
   margin-top: 15rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  
+
   color: #b31c59;
   font-size: 2rem;
   border-radius: 50px;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
   width: 25%;
-  font-family: "Exo 2";
+  font-family: 'Exo 2';
 }
-
 
 .chiste {
   color: #6ba2f0;
@@ -32,20 +34,17 @@
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
   width: 50%;
-  font-family: "Exo 2";
+  font-family: 'Exo 2';
 }
-.sad-image{
-  max-width:5rem;
-  
+.sad-image {
+  max-width: 5rem;
 }
-.normal-image{
+.normal-image {
   max-width: 5rem;
   margin-left: 1rem;
- 
 }
-.happy-image{
+.happy-image {
   max-width: 7.5rem;
-  
 }
 .sad-image:hover {
   cursor: pointer;
@@ -59,8 +58,6 @@
   cursor: pointer;
   transform: scale(1.1);
 }
-
-
 
 .neuButton {
   border: none;
@@ -77,4 +74,5 @@
 .neuButton:hover {
   color: #b31c59;
   cursor: pointer;
+  transform: scale(1.1);
 }
