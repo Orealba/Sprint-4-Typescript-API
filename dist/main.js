@@ -94,9 +94,10 @@ var cargarNuevoChiste = function () { return __awaiter(void 0, void 0, void 0, f
 }); };
 var votoChiste = function (score) {
     if (reportAcudits.length > 0) {
-        reportAcudits[reportAcudits.length - 1].score = score;
-        reportAcudits[reportAcudits.length - 1].date = new Date().toISOString();
-        console.log("Reporte nuevo : ", reportAcudits);
+        var lastReport = reportAcudits[reportAcudits.length - 1];
+        lastReport.score = score;
+        lastReport.date = new Date().toISOString();
+        console.log("Reporte nuevo: ", reportAcudits);
     }
 };
 (_a = document.getElementById("nuevoChiste")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", cargarNuevoChiste);

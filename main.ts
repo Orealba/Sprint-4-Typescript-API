@@ -4,8 +4,12 @@ interface rankingChistes {
   date: string;
 }
 let reportAcudits: rankingChistes[] = []
-let apiSet = 0
-const cargarNuevoChiste = async() => {
+let apiSet: number = 0
+
+interface ChisteAPI {
+  joke: string;
+} 
+const cargarNuevoChiste = async (): Promise<void> => {
     try{
      const myHeaders = new Headers();
          myHeaders.append("Accept", "application/json");
@@ -13,12 +17,12 @@ const cargarNuevoChiste = async() => {
           myHeaders.append("X-Api-Key", "eirHEPIxehHzwQgBxrtzGA==yYwY4Z6qxwhq0W3a");
       }
     
-         const requestOptions  = {
+         const requestOptions: RequestInit  = {
            method: "GET",
            headers: myHeaders,
           
          };
-         let url = apiSet === 0
+         let url: string = apiSet === 0
          ? "https://icanhazdadjoke.com/"
          : "https://api.api-ninjas.com/v1/jokes"
 
@@ -30,7 +34,7 @@ const cargarNuevoChiste = async() => {
    
     
  
-     const datos =  await respuesta.json()
+     const datos: ChisteAPI | any =  await respuesta.json()
      const chiste = apiSet === 0 ? datos.joke : datos[0].joke;
     console.log("Este es mi nuevo chiste: " + chiste);  
 
@@ -59,11 +63,12 @@ const cargarNuevoChiste = async() => {
  };
  
 
-  let votoChiste = (score:number) =>{
+  let votoChiste = (score:number): void =>{
     if ( reportAcudits.length > 0){
-      reportAcudits[reportAcudits.length - 1].score = score;
-      reportAcudits[reportAcudits.length - 1].date = new Date().toISOString();
-      console.log("Reporte nuevo : ", reportAcudits)
+    const lastReport = reportAcudits[reportAcudits.length - 1];
+    lastReport.score = score;
+    lastReport.date = new Date().toISOString();
+    console.log("Reporte nuevo: ", reportAcudits);
     }
   };
  
@@ -79,7 +84,7 @@ const cargarNuevoChiste = async() => {
 
 //Clima
 
-const cargarClima = async () => {
+const cargarClima = async (): Promise<void> => {
   try {
     const myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -102,8 +107,8 @@ const cargarClima = async () => {
     const datos = await respuesta.json();
     console.log("Datos completos de la API:", datos);
 
-    const temperatura = datos.current.temperature;
-    const descripcion = datos.current.summary;
+    const temperatura: number = datos.current.temperature;
+    const descripcion: string = datos.current.summary;
 
    
     const iconosClima: { [key: string]: string } = {
@@ -119,7 +124,7 @@ const cargarClima = async () => {
     };
 
   
-    const icono = iconosClima[descripcion.toLowerCase()] || ""; 
+    const icono: string = iconosClima[descripcion.toLowerCase()] || ""; 
 
    
     let myElement = document.getElementById("clima");
