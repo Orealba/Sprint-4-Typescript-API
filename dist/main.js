@@ -109,7 +109,7 @@ var votoChiste = function (score) {
 cargarNuevoChiste();
 //Clima
 var cargarClima = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var myHeaders, requestOptions, respuesta, datos, temperatura, descripcion, myElement, error_2;
+    var myHeaders, requestOptions, respuesta, datos, temperatura, descripcion, iconosClima, icono, myElement, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -130,12 +130,23 @@ var cargarClima = function () { return __awaiter(void 0, void 0, void 0, functio
             case 2:
                 datos = _a.sent();
                 console.log("Datos completos de la API:", datos);
-                console.log("Respuesta de la API:", datos);
                 temperatura = datos.current.temperature;
                 descripcion = datos.current.summary;
+                iconosClima = {
+                    "partly cloudy": "⛅️ | ",
+                    "partly sunny": "🌤 | ",
+                    sunny: "☀️ | ",
+                    cloudy: "☁️ | ",
+                    rain: "🌧 | ",
+                    "thunderstorm with rain": "⛈ | ",
+                    thunderstorm: "🌩 | ",
+                    hail: "🌨 | ",
+                    snow: "❄️ | ",
+                };
+                icono = iconosClima[descripcion.toLowerCase()] || "";
                 myElement = document.getElementById("clima");
                 if (myElement) {
-                    myElement.innerHTML = "<h3>Weather: </h3>" + "<h3> ".concat(temperatura, "\u00B0C - ").concat(descripcion, "</h3>");
+                    myElement.innerHTML = "\n        <h3>".concat(icono, " ").concat(temperatura, "\u00B0C</h3>\n      ");
                 }
                 else {
                     console.error("Elemento con id 'clima' no encontrado");
@@ -149,5 +160,4 @@ var cargarClima = function () { return __awaiter(void 0, void 0, void 0, functio
         }
     });
 }); };
-// Llamamos a la función para cargar el clima
 cargarClima();

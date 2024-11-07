@@ -79,47 +79,61 @@ const cargarNuevoChiste = async() => {
 
 //Clima
 
-const cargarClima = async() => {
-  
-  try{
-
- 
+const cargarClima = async () => {
+  try {
     const myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
-    
+
     const requestOptions = {
       method: "GET",
       headers: myHeaders,
-      
     };
-    const respuesta = await fetch("https://www.meteosource.com/api/v1/free/point?place_id=lhospitalet-de-llobregat-6356131&sections=current&timezone=UTC&language=en&units=metric&key=h0xfi7lv092neom9tueiu15yj0jabx9htj5j0cw3", requestOptions);
-    
+
+    const respuesta = await fetch(
+      "https://www.meteosource.com/api/v1/free/point?place_id=lhospitalet-de-llobregat-6356131&sections=current&timezone=UTC&language=en&units=metric&key=h0xfi7lv092neom9tueiu15yj0jabx9htj5j0cw3",
+      requestOptions
+    );
+
     if (!respuesta.ok) {
       throw new Error(`Error al obtener el lugar: ${respuesta.status}`);
     }
 
-    // Convertimos la respuesta a JSON
+   
     const datos = await respuesta.json();
     console.log("Datos completos de la API:", datos);
 
-    console.log("Respuesta de la API:", datos);
-
     const temperatura = datos.current.temperature;
     const descripcion = datos.current.summary;
-    
 
-    // Mostramos los datos del lugar en el HTML
+   
+    const iconosClima: { [key: string]: string } = {
+      "partly cloudy": "⛅️ | ",
+      "partly sunny": "🌤 | ",
+      sunny: "☀️ | ",
+      cloudy: "☁️ | ",
+      rain: "🌧 | ",
+      "thunderstorm with rain": "⛈ | ",
+      thunderstorm: "🌩 | ",
+      hail: "🌨 | ",
+      snow: "❄️ | ",
+    };
+
+  
+    const icono = iconosClima[descripcion.toLowerCase()] || ""; 
+
+   
     let myElement = document.getElementById("clima");
     if (myElement) {
-      myElement.innerHTML = `<h3>Weather: </h3>` + `<h3> ${temperatura}°C - ${descripcion}</h3>`;
+      myElement.innerHTML = `
+        <h3>${icono} ${temperatura}°C</h3>
+      `;
     } else {
       console.error("Elemento con id 'clima' no encontrado");
     }
-
   } catch (error) {
     console.error("Error al cargar el clima:", error);
   }
 };
 
-// Llamamos a la función para cargar el clima
+
 cargarClima();
