@@ -4,21 +4,25 @@ interface rankingChistes {
   date: string;
 }
 let reportAcudits: rankingChistes[] = []
-
+let apiSet = 0
 const cargarNuevoChiste = async() => {
     try{
- 
-   
      const myHeaders = new Headers();
          myHeaders.append("Accept", "application/json");
-         
+         if (apiSet === 1) {
+          myHeaders.append("X-Api-Key", "eirHEPIxehHzwQgBxrtzGA==yYwY4Z6qxwhq0W3a");
+      }
+    
          const requestOptions  = {
            method: "GET",
            headers: myHeaders,
           
          };
- 
-     const respuesta = await fetch("https://icanhazdadjoke.com/",requestOptions)
+         let url = apiSet === 0
+         ? "https://icanhazdadjoke.com/"
+         : "https://api.api-ninjas.com/v1/jokes"
+
+     const respuesta = await fetch(url,requestOptions)
      if (!respuesta.ok) {
          throw new Error(`HTTP error! Status: ${respuesta.status}`);
        }
@@ -27,13 +31,15 @@ const cargarNuevoChiste = async() => {
     
  
      const datos =  await respuesta.json()
-     const chiste = datos.joke;  
+     const chiste = apiSet === 0 ? datos.joke : datos[0].joke;
     console.log("Este es mi nuevo chiste: " + chiste);  
 
 
  
     let myElement = document.getElementById("chistecito");
     if (myElement) {
+      myElement.classList.remove("joke-icanhaz", "joke-jokeapi");
+      myElement.classList.add(apiSet=== 0 ? "joke-icanhaz" : "joke-jokeapi");
       myElement.innerHTML = `<h1>${chiste}</h1>`;
     } else {
       console.error("Elemento con id 'chistecito' no encontrado");
@@ -46,6 +52,7 @@ const cargarNuevoChiste = async() => {
         date: new Date().toISOString(),
       })
       console.log("Este es un reporte de chistes: " , reportAcudits)
+      apiSet = apiSet === 0 ? 1 : 0; 
     } catch (error) {
       console.error("Error al cargar el chiste:", error);
     }
@@ -62,7 +69,7 @@ const cargarNuevoChiste = async() => {
  
   document.getElementById("nuevoChiste")?.addEventListener("click", cargarNuevoChiste);
   document.querySelector(".sad-image")?.addEventListener("click", () => votoChiste(1));
-  document.querySelector(".normal-image")?.addEventListener("click", () => {console.log("Sad image clicked"); votoChiste(2)});
+  document.querySelector(".normal-image")?.addEventListener("click", () => votoChiste(2));
   document.querySelector(".happy-image")?.addEventListener("click", () => {
     console.log("Happy image clicked");
     votoChiste(3);

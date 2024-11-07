@@ -10,7 +10,7 @@
   text-align: center;
   margin: 1rem;
   padding: 1rem;
-  color: #126dec;
+  color: #4389eb;
   border-radius: 10rem;
   background: linear-gradient(315deg, #ceb8cb, #f5daf2);
   box-shadow: -16px -16px 34px #a391a0, 16px 16px 34px #ffffff;
@@ -33,7 +33,7 @@
 }
 
 .chiste {
-  color: #6ba2f0;
+ 
   padding-bottom: 3rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -84,4 +84,15 @@
   color: #b31c59;
   cursor: pointer;
   transform: scale(1.1);
+}
+
+
+/*Apis*/
+
+.joke-icanhaz {
+  color: #82b0f2;
+}
+
+.joke-jokeapi {
+  color:#b4577c;
 }
