@@ -1,0 +1,63 @@
+#Sprint-4-Typescript-API
+
+Este es un proyecto que hace uso de TypeScript, donde he integrado diferentes funcionalidades como la obtención de información del clima y la visualización de chistes provenientes de dos APIs distintas. Además, se ha implementado un sistema de votación para los chistes, junto con un diseño interactivo y responsive.
+
+##Tecnologías utilizadas
+-TypeScript: para una tipificación estática y un código más organizado.
+###APIs:
+-API de Clima: para obtener información meteorológica de la zona local.
+-API de Chistes (icanhazdadjoke.com) y API de Chistes (api-ninjas.com): para mostrar chistes variados.
+-HTML y CSS: para la estructura y el diseño visual del proyecto.
+-Neumorphism: para crear un diseño moderno y llamativo en las cajas de información.
+-Responsive Design: asegurando la correcta visualización del proyecto en pantallas con un ancho entre 375px y 1200px.
+
+##Funcionalidades:
+
+###Chistes
+-Obtención de chistes: Llamada a dos APIs diferentes para mostrar chistes aleatorios. Cada vez que se pulsa el botón de "Nuevo Chiste", el chiste cambia, alternando entre las dos APIs.
+-Votación de chistes: Se implementó un sistema de votación con botones de imagen para permitir al usuario calificar el chiste (1-3 estrellas). La información del voto y el chiste se almacena en un "ranking".
+-Colores diferenciados: Los chistes provenientes de la primera API están resaltados con un fondo azul, mientras que los de la segunda API tienen un fondo granate.
+-Visualización en la consola: Toda la información sobre los chistes y sus votos se muestra en la consola para su seguimiento y análisis.
+
+###Clima
+-Obtención del clima local: La aplicación obtiene información meteorológica del lugar donde se encuentra el usuario, utilizando una API para el clima.
+-Iconos interactivos: En lugar de mostrar solo texto, se usan iconos representativos para el clima (soleado, lluvioso, tormenta, etc.) para hacer la interfaz más visual e interactiva.
+
+###Diseño Responsivo
+-El diseño de la página es completamente responsive y funciona en dispositivos móviles y de escritorio con un rango de pantalla entre 375px y 1200px.
+-El diseño está basado en el concepto de Neumorphism, con fondos y cajas suaves que hacen que la interfaz sea más atractiva y moderna.
+
+##Estilos
+-Se aplicaron estilos para crear un fondo atractivo y cajas con Neumorphism para presentar la información de manera clara y estética.
+-Las cajas con información del clima y los chistes tienen un diseño limpio y moderno.
+-Se utilizaron imágenes personalizadas como botones para la interacción con la votación de los chistes.
+
+##Instrucciones para ejecutar el proyecto:
+
+###Prerequisitos
+-Para poder ejecutar este proyecto de manera correcta, asegúrate de tener instalado TypeScript y las dependencias de npm.
+
+1. Instalar TypeScript (si no lo tienes instalado globalmente):
+   -npm install -g typescript
+
+2. Instalar las dependencias del proyecto:
+   -En el directorio raíz de tu proyecto, ejecuta:
+   -npm install
+
+3. Compilar el proyecto:
+   -Una vez instaladas las dependencias, puedes compilar el proyecto de TypeScript:
+   -tsc
+   Esto generará los archivos JavaScript correspondientes que luego puedes ejecutar en tu navegador.
+
+4. Abrir el proyecto en tu navegador:
+   Puedes abrir el proyecto simplemente cargando el archivo index.html en tu navegador.
+
+##Notas
+API Keys: Para que las APIs de chistes y clima funcionen correctamente, necesitas tener claves de API válidas. Asegúrate de haber actualizado las claves de API en el código antes de ejecutar el proyecto.
+
+API de Chistes (icanhazdadjoke.com): https://icanhazdadjoke.com/
+API de Chistes (api-ninjas.com): https://api-ninjas.com/api/jokes
+API de Clima (Meteosource): https://www.meteosource.com/
+
+##Contribución
+Si deseas contribuir al proyecto, por favor realiza un fork y abre un pull request con tus cambios.
